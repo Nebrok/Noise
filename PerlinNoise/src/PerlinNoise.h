@@ -19,13 +19,6 @@ struct float2 {
 class PerlinNoise
 {
 public:
-<<<<<<< Updated upstream
-	const static size_t VECTOR_ARRAY_SIZE = 64;
-	const static size_t GRID_WIDTH = 16;
-
-private:
-	KTools::Vector3<float> vectorArray[64];
-=======
     PerlinNoise();
     ~PerlinNoise();
 
@@ -43,7 +36,6 @@ private:
 
     // 1. Initialization of the Gradient Table.
     static void Initialize();
->>>>>>> Stashed changes
 
     // 2. Interpolation Mix function: Calculates a linear interpolation between 'a' and 'b' using factor 't'.
     static inline float mix(float a, float b, float t);

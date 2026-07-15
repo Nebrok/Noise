@@ -9,14 +9,6 @@
 static float2 g_gradientTable[NoiseConstants::GRADIENT_TABLE_SIZE];
 static bool g_initialized = false;
 
-<<<<<<< Updated upstream
-PerlinNoise::PerlinNoise()
-{
-	for (int i = 0; i < VECTOR_ARRAY_SIZE; i++)
-	{
-		vectorArray[i] = KTools::Vector3<float>::RandomUnitVector();
-	}
-=======
 /**
  * @brief Populates the gradient table with "random" unit vectors.
  * This is performed once to ensure that subsequent lookups are O(1).
@@ -35,7 +27,6 @@ void PerlinNoise::Initialize() {
     }
 
     g_initialized = true;
->>>>>>> Stashed changes
 }
 
 // --- Utility Definitions ---
@@ -47,65 +38,6 @@ float PerlinNoise::mix(float a, float b, float t) {
     return a + t * (b - a);
 }
 
-<<<<<<< Updated upstream
-float* PerlinNoise::GenerateNoise(int width)
-{
-	float* outNoise = new float[width * width];
-	int grid_size = width;
-	float cell_size = (float)(grid_size / GRID_WIDTH);
-
-
-	int gridWidth = 16;
-	int vectorIndexArray[GRID_WIDTH * GRID_WIDTH];
-
-	for (int j = 0; j < gridWidth; j++)
-	{
-		for (int i = 0; i < gridWidth; i++)
-		{
-			vectorIndexArray[i] = rand() % VECTOR_ARRAY_SIZE;
-		}
-	}
-
-	int cornerX = 0;
-	int cornerY = 0;
-
-
-
-
-	for (int j = 0; j < width; j++)
-	{
-		for (int i = 0; i < width; i++)
-		{
-
-			for (int c = 0; c < 4; c++)
-			{
-				if (c == 0) //top left
-				{
-					cornerX = int(i / cell_size);
-					cornerY = int(j / cell_size);
-				}
-				else if (c == 1) //top right
-				{
-					cornerX = int((i / cell_size) + 1);
-					cornerY = int(j / cell_size);
-				}
-				else if (c == 2) //bottom left
-				{
-					cornerX = int(i / cell_size);
-					cornerY = int((j / cell_size) + 1);
-				}
-				else if (c == 3) //bottom right
-				{
-					cornerX = int((i / cell_size) + 1);
-					cornerY = int((j / cell_size) + 1);
-				}
-
-			outNoise[j * width + i] = float(rand()) / RAND_MAX;
-		}
-	}
-
-	return outNoise;
-=======
 /**
  * @brief Calculates the fade curve based on 6t^5 - 15t^4 + 10t^3 (smootherstep).
  */
@@ -189,5 +121,4 @@ float* PerlinNoise::GenerateNoise(int width, int height) {
     }
 
     return outNoise;
->>>>>>> Stashed changes
 }
