@@ -9,12 +9,12 @@
 
 int main()
 {
-    std::cout << "Hello World!\n";
-
-    int squareSize = 256;
-
+    
+    int squareSize = 2048;
+    
     Image testImage(squareSize, squareSize, ImageType::PPM, PixelFormat::R8_8);
     testImage.CopyBuffer(PerlinNoise::GenerateNoise(squareSize, squareSize));
-    testImage.SaveImage("testImage.ppm", std::filesystem::path(std::filesystem::current_path().string() + "/Images/"));
+    std::cout << std::filesystem::current_path().string().c_str() << '\n';
+    testImage.SaveImage("testImage.ppm", std::filesystem::path(std::filesystem::current_path().string() + "/PerlinNoise/Images/"));
 
 }

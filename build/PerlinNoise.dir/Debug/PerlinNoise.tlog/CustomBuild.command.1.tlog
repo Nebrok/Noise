@@ -1,0 +1,10 @@
+^C:\USERS\NEBRO\DEV\000-CPP\NOISE\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/nebro/dev/000-CPP/Noise -BC:/Users/nebro/dev/000-CPP/Noise/build --check-stamp-file C:/Users/nebro/dev/000-CPP/Noise/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
